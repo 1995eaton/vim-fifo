@@ -15,13 +15,13 @@ map <silent> <C-b> :call OutputFifo()<CR>
 imap <silent> <C-b> <C-o>:call OutputFifo()<CR>
 ```
 
-###running
+###Running vim-fifo
 
  * After you have the following lines in your vimrc, run the vimfifo.sh file and open a terminal in another window.
- * Press &lt;C-b&gt; to execute the current file, the output should appear in the terminal running the vimfifo.sh script.
+ * Press ```<C-b>``` to execute the current file, the output should appear in the terminal running the vimfifo.sh script.
 
-###supported file types
+###Supported File Types
 
- * python
- * ruby
- * javascript
+ * Python
+ * Ruby
+ * JavaScript (node.js)
