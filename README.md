@@ -18,7 +18,7 @@ imap <silent> <C-b> <C-o>:call OutputFifo()<CR>
 ###running
 
  * After you have the following lines in your vimrc, run the vimfifo.sh file and open a terminal in another window.
- * Press <C-b> to execute the current file, the output should appear in the terminal running the vimfifo.sh script.
+ * Press &lt;C-b&gt; to execute the current file, the output should appear in the terminal running the vimfifo.sh script.
 
 ###supported file types
 
