@@ -6,7 +6,10 @@ vim-fifo
 
 An easy way to execute files through Vim and output their results to a shell fifo
 
-Just add these lines to your $SHELL's rc file:
+
+###Installation
+
+In addition to adding the plugin folder to your vim directory, just add these lines to your $SHELL's rc file:
 
 ```bash
 VIM_FIFO_FILE="/tmp/vim.fifo"
@@ -26,16 +29,16 @@ function vim_fifo() {
 alias vimfifo="vim_fifo"
 ```
 
-###vimrc
+###Running vim-fifo
+
+ * After you have the script in your rc file, run the ```vimfifo``` command in another terminal
+ * Press ```<C-m>``` to execute the current file in vim
+
+###Configuration
 
 ```viml
 let g:fifo_file = "/tmp/vim.fifo" "Default fifo file
 ```
-
-###Running vim-fifo
-
- * After you have the script in your rc file, run the ```vimfifo``` command
- * Press ```<C-m>``` to execute the current file in vim
 
 ###Supported File Types
 
