@@ -1,6 +1,9 @@
 vim-fifo
 ========
 
+###Example usage
+![example](https://raw.githubusercontent.com/1995eaton/vim-fifo/master/example.png)
+
 An easy way to execute files through Vim and output their results to a shell fifo
 
 Just add these lines to your $SHELL's rc file:
