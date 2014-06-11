@@ -4,9 +4,6 @@ vim-fifo
 ###Example usage
 ![example](https://raw.githubusercontent.com/1995eaton/vim-fifo/master/example.png)
 
-An easy way to execute files through Vim and output their results to a shell fifo
-
-
 ###Installation
 
 In addition to adding the plugin folder to your vim directory, just add these lines to your $SHELL's rc file:
