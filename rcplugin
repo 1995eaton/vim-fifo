@@ -1,0 +1,18 @@
+# VIM FIFO
+# Add this to your $SHELL's rc file
+
+VIM_FIFO_FILE="/tmp/vim.fifo"
+
+function ctrl_c_trap() {
+  rm $VIM_FIFO_FILE
+  trap - INT
+}
+
+function vim_fifo() {
+  mkfifo $VIM_FIFO_FILE
+  trap ctrl_c_trap INT
+  while [[ -e $VIM_FIFO_FILE ]]; do
+    $(tail $VIM_FIFO_FILE)
+  done
+}
+alias vimfifo="vim_fifo"
