@@ -20,7 +20,7 @@ function vim_fifo() {
   mkfifo $VIM_FIFO_FILE
   trap ctrl_c_trap INT
   while [[ -e $VIM_FIFO_FILE ]]; do
-    $(tail $VIM_FIFO_FILE)
+    eval $(tail $VIM_FIFO_FILE)
   done
 }
 alias vimfifo="vim_fifo"
@@ -42,3 +42,5 @@ let g:fifo_file = "/tmp/vim.fifo" "Default fifo file
  * Python
  * Ruby
  * JavaScript (through node)
+ * Perl
+ * sh/zsh
