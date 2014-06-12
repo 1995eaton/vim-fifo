@@ -10,7 +10,11 @@ endfunction
 
 function FifoRun()
   let l:current_file = expand("%:p")
-  if filereadable(g:fifo_file)
+  if exists("g:vimfifo#" . expand("%:e"))
+    execute "let l:command = g:vimfifo#" . expand("%:e")
+    let l:command = substitute(l:command, "%s", l:current_file, "g")
+    call system("echo \"" . l:command . "\" > " . g:fifo_file)
+  elseif filereadable(g:fifo_file)
     if &filetype == "python"
       call system("echo \"python " . l:current_file . "\" > " . g:fifo_file)
     elseif &filetype == "javascript"

@@ -9,6 +9,9 @@ function ctrl_c_trap() {
 }
 
 function vim_fifo() {
+  if [[ -e $VIM_FIFO_FILE ]]; then
+    rm $VIM_FIFO_FILE
+  fi
   mkfifo $VIM_FIFO_FILE
   trap ctrl_c_trap INT
   while [[ -e $VIM_FIFO_FILE ]]; do

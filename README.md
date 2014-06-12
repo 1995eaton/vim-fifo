@@ -37,6 +37,18 @@ alias vimfifo="vim_fifo"
  * After you have the script in your rc file, run the ```vimfifo``` command in another terminal
  * Press ```<C-m>``` to execute the current file in vim
 
+###Custom file types
+ * You can define custom run scripts based on a certain file type with the ```g:vimfifo# + file extension``` variable.
+ * To reference the current file in the script, use ```%s```
+ * Examples:
+```viml
+let g:vimfifo#myscript = "cat %s" "This will be translated to 'cat /file/im/working/on/myfile.myscript'
+let g:vimfifo#cpp = "g++ -O2 -Wall -march=native %s -o output.vimfifo && ./output.vimfifo"
+let g:vimfifo#py = "python %s"
+let g:vimfifo#pytimed = "time python %s"
+let g:vimfifo#ssh = "ssh $(head -n1 %s) -p 2222"
+```
+
 ###Configuration
 
 ```viml
