@@ -4,25 +4,24 @@ endif
 
 function ClearFifo()
   if filereadable((g:fifo_file))
-    execute "silent !echo clear >" . g:fifo_file
-    redraw!
+    call system("echo clear > " . g:fifo_file)
   endif
 endfunction
 
 function FifoRun()
+  let l:current_file = expand("%:p")
   if filereadable(g:fifo_file)
     if &filetype == "python"
-      execute "silent !echo 'python %:p'>" . g:fifo_file
+      call system("echo \"python " . l:current_file . "\" > " . g:fifo_file)
     elseif &filetype == "javascript"
-      execute "silent !echo 'node %:p'>" . g:fifo_file
+      call system("echo \"node " . l:current_file . "\" > " . g:fifo_file)
     elseif &filetype == "ruby"
-      execute "silent !echo 'ruby %:p'>" . g:fifo_file
+      call system("echo \"ruby " . l:current_file . "\" > " . g:fifo_file)
     elseif &filetype == "sh" || &filetype == "zsh"
-      execute "silent !echo '" . join(getline(1,'$'), "\\\n") . "' >" . g:fifo_file
+      call system("echo '" . join(getline(1,'$'), "\n") . "' >" . g:fifo_file)
     elseif &filetype == "perl"
-      execute "silent !echo 'perl %:p'>" . g:fifo_file
+      call system("echo \"perl " . l:current_file . "\" > " . g:fifo_file)
     endif
-    redraw!
   endif
 endfunction
 
