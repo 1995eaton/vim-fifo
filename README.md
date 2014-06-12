@@ -1,6 +1,13 @@
 vim-fifo
 ========
 
+###What is this?
+The purpose of the plugin is to save the time it takes to switch from Vim to
+another terminal window/pane and execute the script you've been editing. This is
+beneficial when you're in the workflow cycle best described as "modify script -> save file -> switch to
+other terminal -> run script -> switch back to vim -> repeat". vim-fifo slims down this cycle to:
+"modify script -> save file -> &lt;C-m&gt; -> repeat"
+
 ###Example usage
 ![example](https://raw.githubusercontent.com/1995eaton/vim-fifo/master/example.png)
 
@@ -27,7 +34,6 @@ alias vimfifo="vim_fifo"
 ```
 
 ###Running vim-fifo
-
  * After you have the script in your rc file, run the ```vimfifo``` command in another terminal
  * Press ```<C-m>``` to execute the current file in vim
 
@@ -43,4 +49,6 @@ let g:fifo_file = "/tmp/vim.fifo" "Default fifo file
  * Ruby
  * JavaScript (through node)
  * Perl
- * sh/zsh
+ * sh/zsh/bash
+ * C (experimental)
+ * C++ (experimental)

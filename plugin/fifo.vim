@@ -17,10 +17,16 @@ function FifoRun()
       call system("echo \"node " . l:current_file . "\" > " . g:fifo_file)
     elseif &filetype == "ruby"
       call system("echo \"ruby " . l:current_file . "\" > " . g:fifo_file)
-    elseif &filetype == "sh" || &filetype == "zsh"
+    elseif &filetype == "sh" || &filetype == "zsh" || &filetype == "tcsh" || &filetype == "csh"
       call system("echo '" . join(getline(1,'$'), "\n") . "' >" . g:fifo_file)
     elseif &filetype == "perl"
       call system("echo \"perl " . l:current_file . "\" > " . g:fifo_file)
+    elseif &filetype == "cpp"
+      call system("echo \"g++ " . l:current_file . " -o /tmp/vimfifo.out && /tmp/vimfifo.out && rm /tmp/vimfifo.out\" >" . g:fifo_file)
+    elseif &filetype == "c"
+      call system("echo \"gcc " . l:current_file . " -o /tmp/vimfifo.out && /tmp/vimfifo.out && rm /tmp/vimfifo.out\" >" . g:fifo_file)
+    elseif &filetype == "haskell"
+      call system("echo \"runhaskell " . l:current_file . "\" > " . g:fifo_file)
     endif
   endif
 endfunction
